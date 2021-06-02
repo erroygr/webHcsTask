@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Создать заявку</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/head :: head"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Создать заявку</h1>
+    <form action="/view-request/add" method="post" enctype="multipart/form-data">
+
+        <label>Выберете юзера из списка</label>
+        <select name="user" class="form-control">
+            <option th:each="el : ${userTables}" th:value="${el.getUserLastName()}"
+                    th:text="${el.getUserLastName()}"></option>
+        </select>
+        <br><br>
+
+        <label>Выберете категорию заявки из списка</label>
+
+        <select name="categ" class="form-control">
+            <option th:each="category : ${categories}"
+                    th:value="${category.getCategoryName()}"
+                    th:text="${category.getCategoryName()}"></option>
+        </select>
+
+        <br><br>
+        <textarea name="requestDescription" placeholder="Опишите проблему" class="form-control"></textarea><br><br>
+        <button id="subbtm" type="submit" class="btn btn-success">Зарегистрировать заявку</button>
+    </form>
+</div>
+
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

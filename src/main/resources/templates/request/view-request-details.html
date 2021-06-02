@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Детали заявки</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="blocks/head :: head"></header>
+
+<div class="container mt-5">
+    <div th:each="el : ${request}" class="alert alert-info mt-2">
+        <h3 th:text="${el.user.getUserName()}"></h3>
+        <h3 th:text="${el.user.getUserLastName()}"></h3>
+        <h3 th:text="${el.user.getUserAddress()}"></h3>
+        <h3 th:text="${el.getCategory()}"></h3>
+        <h3 th:text="${el.getRequestdescription()}"></h3>
+        <h3 th:text="${el.getRequeststatus()}"></h3>
+        <a th:href="'/view-request/'+${el.getRowid()} + '/edite'" class="btn btn-warning">Редактировать</a><br><br>
+        <form th:action="'/view-request/'+${el.getRowid()} + '/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Закрыть заявку</button>
+        </form>
+
+    </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>
