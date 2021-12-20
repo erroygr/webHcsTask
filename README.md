@@ -8,3 +8,7 @@ mamp сервер для бд
 в application.property настройки бд
 
 Залил весь проет, хз как его собирать. Наверное через idea.
+
+WAR file gj ссылке 
+(по размеру нельзя залить сюда)
+https://disk.yandex.ru/d/ExgM4Gm27gwvhw
